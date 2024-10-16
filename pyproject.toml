@@ -1,0 +1,55 @@
+[build-system]
+requires = [
+  "hatchling",
+  "hatch-requirements-txt",
+  "hatch-fancy-pypi-readme>=22.5.0",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "gradio_msaplot"
+version = "0.0.1"
+description = "MSAplot is customizable panels for plotting MSA, seqlogo, annotation, and consensus histograms."
+readme = "README.md"
+license = "mit"
+requires-python = ">=3.6"
+authors = [{ name = "Joseph Pollack", email = "tonic@tonic-ai.com" }]
+keywords = ["gradio-custom-component", "gradio-template-Plot", "med", "medicine", "bio", "biology", "chem", "chemistry", "MSA", "multiple sequence alignment", "seqlogo", "annotation", "consensus histogram", "visualize"]
+# Add dependencies here
+dependencies = [
+  "gradio>=4.0,<6.0",
+  "seaborn>=0.9",
+  "matplotlib>=2.2.2"
+]
+classifiers = [
+  'Development Status :: 3 - Alpha',
+  'Operating System :: OS Independent',
+  'Programming Language :: Python :: 3',
+  'Programming Language :: Python :: 3 :: Only',
+  'Programming Language :: Python :: 3.8',
+  'Programming Language :: Python :: 3.9',
+  'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+  'Topic :: Scientific/Engineering',
+  'Topic :: Scientific/Engineering :: Artificial Intelligence',
+  'Topic :: Scientific/Engineering :: Visualization',
+]
+
+# The repository and space URLs are optional, but recommended.
+# Adding a repository URL will create a badge in the auto-generated README that links to the repository.
+# Adding a space URL will create a badge in the auto-generated README that links to the space.
+# This will make it easy for people to find your deployed demo or source code when they
+# encounter your project in the wild.
+
+[project.urls]
+repository = "https://github.com/Josephrp/GradioMSAPlot.git"
+space = "https://huggingface.co/spaces/seq-to-pheno/MSAPlot"
+
+[project.optional-dependencies]
+dev = ["build", "twine"]
+
+[tool.hatch.build]
+artifacts = ["/backend/gradio_msaplot/templates", "*.pyi"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["/backend/gradio_msaplot"]
